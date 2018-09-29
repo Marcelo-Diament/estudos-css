@@ -1,0 +1,81 @@
+/*
+*
+* ### ESTUDOS DE PROGRAMAÇÃO/DESENVOLVIMENTO WEB | FRONT END ###
+* 	  ##### CSS GRID LAYOUT E O USO DE VARIÁVEIS NO CSS ####
+*
+* Folha de Estilo criada para estudo sobre uso do Grid Layout e 
+* o uso das variáveis no CSS.
+*
+* autor: Marcelo Diament
+* site: djament.com.br/cv
+* github: Marcelo-Diament
+* linkedin: in/marcelodiament
+*
+* 
+* Fonte principal: https://medium.com/@fionnachan/dynamic-number-of-rows-and-columns-with-css-grid-layout-and-css-variables-cb8e8381b6f2
+* Acesso em 26/09/2018 em às 20:07
+*
+*/
+
+/* resets */
+:root {
+  --rowNum: 4;
+  --colNum: 5;
+  --gridHeight: 120px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Calibri;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* container */
+.container {
+  display: grid;
+  grid-template-rows: repeat(var(--rowNum), var(--gridHeight));
+  grid-template-columns: repeat(var(--colNum), auto);
+  gap: 5px;
+}
+
+/* células */
+.celula {
+  grid-column-start: auto;
+  grid-row-start: auto;
+}
+
+/* filtro: células -> ímpares */
+.celula:nth-child(odd) {
+  background-color: #14aaccb3;
+}
+/* filtro: células -> pares */
+.celula:nth-child(even) {
+  background-color: #dcdcdc;
+}
+
+/* controles: adicionar/remover colunas e células */
+.controles{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+}
+.controle {
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  float: right;
+  background: rgba(40, 180, 200, 0.8);
+  border: 2px solid black;
+  border-radius: 40px/40px;
+}
+/* controles: link dos controles */
+.controle a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.controle a:hover {
+  color: black;
+}
